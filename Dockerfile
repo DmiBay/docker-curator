@@ -10,6 +10,9 @@ RUN apk --no-cache add python py-setuptools py-pip gcc libffi py-cffi python-dev
     sed -i '/import sys/a import urllib3.contrib.pyopenssl' /usr/bin/curator && \
     sed -i '/import sys/a import urllib3' /usr/bin/curator
 
+COPY entrypoint.sh /
+RUN chmod a+x /entrypoint.sh
+
 USER nobody:nobody
 
-ENTRYPOINT ["/usr/bin/curator"]
+ENTRYPOINT ["/entrypoint.sh"]
