@@ -3,8 +3,7 @@
 
 if [ "$S3_REPO_ENABLE" = "true" ] ; then
     echo 'Create S3 repository...'
-    es_repo_mgr create s3 \
-      --config "$CONFIG_PATH" \
+    es_repo_mgr --config "$CONFIG_PATH" create s3 \
       --repository "$S3_REPO_NAME" \
       --bucket "$S3_BUCKET" \
       --region "$S3_AWS_REGION" \
